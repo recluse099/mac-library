@@ -21,4 +21,4 @@ throwMac = ioTCB . throw
    same labels
 -}
 catchMac :: (Exception e) => Mac l a -> (e -> Mac l a) -> Mac l a
-catchMAC (MkMac io) hd = ioTCB $ catch io (runMac . hd)
+catchMac (MkMac io) hd = ioTCB $ catch io (runMac . hd)
