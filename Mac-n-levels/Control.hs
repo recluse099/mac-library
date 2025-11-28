@@ -8,7 +8,7 @@ module Mac.Control (
 )
 where
 
-import           Mac.Core          (MAC, Res (MkRes), ioTCB, runMac)
+import           Mac.Core          (Mac, Res (MkRes), ioTCB, runMac)
 import           Mac.Exception
 import           Mac.Label
 import           Mac.NumLattice

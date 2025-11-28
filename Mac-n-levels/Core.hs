@@ -22,7 +22,7 @@ newtype Res l a = MkRes {unRes :: a}
 
 -- | Label of resources
 labelOf :: Res l a -> l
-labelOf res = undefined
+labelOf _res = undefined
 
 {- |
     This monad labels the results of the computation (of type @a@) with
