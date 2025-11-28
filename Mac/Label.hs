@@ -1,7 +1,7 @@
 {-# LANGUAGE Trustworthy #-}
 
 -- | Labeled expressions.
-module MAC.Label (
+module Mac.Label (
   Labeled (),
   Id (MkId, unId),
   label,

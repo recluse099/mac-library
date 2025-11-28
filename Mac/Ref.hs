@@ -1,11 +1,11 @@
 {-# LANGUAGE Trustworthy #-}
 
 -- | Mutuable state (references)
-module MAC.Ref (
-  MACRef,
-  newMACRef,
-  readMACRef,
-  writeMACRef,
+module Mac.Ref (
+  MacRef,
+  newMacRef,
+  readMacRef,
+  writeMacRef,
 )
 where
 
@@ -19,17 +19,17 @@ import           Mac.Mac
 import           Mac.Effects
 
 -- | Labeled references
-type MACRef l a = Res l (IORef a)
+type MacRef l a = Res l (IORef a)
 
 -- | Creation of labeled references
-newMACRef :: (Less l l') => a -> MAC l (MACRef l' a)
-newMACRef = newTCB . newIORef
+newMacRef :: (Less l l') => a -> Mac l (MacRef l' a)
+newMacRef = newTCB . newIORef
 
 -- | Reading labeled references
-readMACRef :: (Less l' l) => MACRef l' a -> MAC l a
-readMACRef = readTCB readIORef
+readMacRef :: (Less l' l) => MacRef l' a -> Mac l a
+readMacRef = readTCB readIORef
 
 -- | Writing labeled references
-writeMACRef :: (Less l l') => MACRef l' a -> a -> MAC l ()
-writeMACRef secref v = writeTCB (`writeIORef` v) secref
+writeMacRef :: (Less l l') => MacRef l' a -> a -> Mac l ()
+writeMacRef secref v = writeTCB (`writeIORef` v) secref
 
